@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block content %}
+
+			<div class="tm-container-inner tm-history">
+				<div class="row">
+					{% if to_edit %}
+					<h1>Edit Coffee</h1>
+					{% else %}
+					<h1>Add a new Coffee</h1>
+					{% endif %}
+					<div class="col-12">
+                        {{ render_form(form,novalidate=True) }}
+					</div>
+				</div>
+			</div>
+{% endblock %}

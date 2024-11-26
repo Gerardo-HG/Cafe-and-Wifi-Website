@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">A perfect coffee for you</h2>
+				<p class="col-12 text-center">Choose your own coffee to increase your productivity at work in anyplace you are at it.</p>
+			</header>
+
+			<div class="tm-paging-links">
+				<nav>
+					<ul>
+						{% for coffee in all_coffees %}
+						<li class="tm-paging-item"><a href="{{ url_for('show_coffees_by_name',cafe_name=coffee) }}" class="tm-btn tm-btn-default tm-right">{{coffee}}</a></li>
+						{% endfor %}
+					</ul>
+				</nav>
+			</div>
+
+
+			<div class="tm-section tm-container-inner">
+				<div class="row">
+					<div class="col-md-6">
+						<figure class="tm-description-figure">
+							<iframe src="https://giphy.com/embed/bnl7xKaEXMLhI475je" width="300" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<div class="tm-description-box">
+							<h4 class="tm-gallery-title">Tokio Capybara Coffee</h4>
+							<p class="tm-mb-45">Did you know that there is a Tokio coffe place surrender by capybaras? These are things that you can do:</p>
+							<ul>
+							<li>Watch capybaras relaxing in our cafe</li>
+							<li>Feed treats to the capybaras</li>
+							<li>Enjoy coffee, lattes, and tea</li>
+							</ul>
+						</div>
+						<li class="tm-paging-item"><a href="{{ url_for('add_coffe') }}" class="tm-btn tm-btn-default tm-right">Add more coffees</a></li>
+					</div>
+				</div>
+			</div>
+		</main>
+
+{% endblock %}

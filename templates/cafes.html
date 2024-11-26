@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+	<h1>Coffe Places</h1>
+		<div class="row">
+			{% for cafe in all_cafes %}
+			<div class="col-sm-6 padding-top-40">
+			<img class="benefit" alt="Map of Work-Friendly Locations" src="{{ cafe.img_url }}" width="300" height="300">
+			<h2><a href="{{ cafe.map_url }}" target="_blank">{{ cafe.name }}</a></h2>
+			<h4>Popular Coffee: {{ cafe.popular_coffee }}</h4>
+				<p>This is located in <strong>{{ cafe.location }}, price for the coffee is {{ cafe.coffe_price }}</strong></p>
+				<ul>
+					<li>Wifi:  <b>{{cafe.has_wifi}}</b></li>
+					<li>Toilet:  <b>{{cafe.has_toilet}}</b></li>
+					<li>Sockets:  <b>{{cafe.has_sockets}}</b></li>
+					<li>Take calls:  <b>{{cafe.can_take_calls}}</b></li>
+				</ul>
+				<p><a href="{{ url_for('edit_coffe',cafe_id=cafe.id ) }}">Update Coffe</a><br><a href="{{ url_for('delete_coffee',coffe_id=cafe.id) }}">Delete coffee ✘</a></p>
+			</div>
+			{% endfor %}
+		</div>
+</section>
+{% endblock %}
